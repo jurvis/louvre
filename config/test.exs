@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :louvre, Louvre.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "jurvistan",
+  password: "",
   database: "louvre_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

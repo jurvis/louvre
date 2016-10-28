@@ -2,27 +2,25 @@ exports.config = {
   // See http://brunch.io/#documentation for docs.
   files: {
     javascripts: {
-      joinTo: "js/app.js"
-
-      // To use a separate vendor.js bundle, specify two files path
-      // http://brunch.io/docs/config#-files-
-      // joinTo: {
-      //  "js/app.js": /^(web\/static\/js)/,
-      //  "js/vendor.js": /^(web\/static\/vendor)|(deps)/
-      // }
-      //
-      // To change the order of concatenation of files, explicitly mention here
-      // order: {
-      //   before: [
-      //     "web/static/vendor/js/jquery-2.1.1.js",
-      //     "web/static/vendor/js/bootstrap.min.js"
-      //   ]
-      // }
+      joinTo: {
+        "js/app.js": [
+          "deps/phoenix/web/static/js/phoenix.js",
+          "deps/phoenix/web/static/js/phoenix_html.js",
+          /^(web\/static\/js\/shared)/,
+          /^(web\/static\/js\/app)/
+        ],
+        "js/admin.js": [
+          "deps/phoenix/web/static/js/phoenix.js",
+          "deps/phoenix/web/static/js/phoenix_html.js",
+          /^(web\/static\/js\/shared)/,
+          /^(web\/static\/js\/admin)/
+        ]
+      }
     },
     stylesheets: {
-      joinTo: "css/app.css",
-      order: {
-        after: ["web/static/css/app.css"] // concat app.css last
+      joinTo: {
+        "css/app.css": /^(web\/static\/css\/app)/,
+        "css/admin.css": /^(web\/static\/css\/admin)/,
       }
     },
     templates: {
@@ -41,6 +39,8 @@ exports.config = {
   paths: {
     // Dependencies and current project directories to watch
     watched: [
+      "deps/phoenix/web/static",
+      "deps/phoenix_html/web/static",
       "web/static",
       "test/static"
     ],
@@ -59,7 +59,8 @@ exports.config = {
 
   modules: {
     autoRequire: {
-      "js/app.js": ["web/static/js/app"]
+      "js/app.js": ["web/static/js/app"],
+      "js/admin.js": ["web/static/js/admin"]
     }
   },
 
