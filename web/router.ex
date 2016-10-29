@@ -27,5 +27,6 @@ defmodule Louvre.Router do
     pipe_through [:browser, :admin]
 
     get "/", PageController, :index
+    resources "/me", UserController
   end
 end

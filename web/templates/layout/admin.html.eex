@@ -18,6 +18,11 @@
         Posts
       <% end %>
 
+      <%= link to: admin_user_path(@conn, :index), class: "item #{active_class(@conn, Louvre.Admin.UserController)}" do %>
+        <i class="user icon"></i>
+        Me
+      <% end %>
+
       <%= link to: page_path(@conn, :index), class: "item" do %>
         <i class="sign out icon"></i>
         Public

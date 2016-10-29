@@ -1,0 +1,24 @@
+<div class="ui very padded basic segment">
+  <div class="ui basic segment">
+    <h1 class="ui dividing header">Me</h1>
+
+    <div class="ui basic segment">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><%= @person.name %></td>
+            <td><%= @person.email %></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
