@@ -26,7 +26,7 @@
         <%= for post <- @posts do %>
           <tr>
             <td><%= post.id %></td>
-            <td><%= post.name %></td>
+            <td><%= post.title %></td>
             <td><%= post.slug %></td>
             <td class="center aligned">
               <div class="ui tiny basic buttons">

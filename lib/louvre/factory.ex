@@ -7,4 +7,11 @@ defmodule Louvre.Factory do
       email: sequence(:email, &"jurvis-#{&1}@email.com")
     }
   end
+
+  def post_factory do
+    %Louvre.Post{
+      title: sequence(:name, &"Post #{&1}"),
+      slug: sequence(:slug, &"post-#{&1}")
+    }
+  end
 end
