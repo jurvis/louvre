@@ -2,7 +2,7 @@ alias Louvre.Repo
 alias Louvre.User
 
 import Ecto
-import Ecto.Changset
+import Ecto.Changeset
 import Ecto.Query, only: [from: 1, from: 2]
 
 defmodule H do

@@ -41,5 +41,15 @@ defmodule Louvre.ConnCase do
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}
+
+    conn = Phoenix.ConnTest.build_conn()
+
+    if tags[:as_admin] do
+      user = %Louvre.User{}
+      conn = Plug.Conn.assign(conn, :current_user, user)
+      {:ok, conn: conn, user: user}
+    else
+      {:ok, conn: conn}
+    end
   end
 end

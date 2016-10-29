@@ -33,7 +33,7 @@ defmodule Louvre.AuthController do
     user = Repo.get_by(User, email: email, auth_token: auth_token)
 
     cond do
-      user && Timex.now < user.auth_token_expires_at ->
+      user && Timex.before?(Timex.now, user.auth_token_expires_at) ->
         Repo.update(User.sign_in_changes(user))
         conn
         |> assign(:current_user, user)

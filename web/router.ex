@@ -16,6 +16,7 @@ defmodule Louvre.Router do
 
   pipeline :admin do
     plug :put_layout, {Louvre.LayoutView, :admin}
+    plug Louvre.Plug.RequireAdmin
   end
 
   scope "/", Louvre do
