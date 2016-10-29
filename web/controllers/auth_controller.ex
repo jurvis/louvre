@@ -43,7 +43,7 @@ defmodule Louvre.AuthController do
       true ->
         conn
         |> put_flash(:info, "Whoops!")
-        |> render("new.html", person: nil)
+        |> render "new.html", person: nil
     end
   end
 

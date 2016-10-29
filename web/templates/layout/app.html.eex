@@ -18,7 +18,7 @@
 
       <ul>
         <%= if @current_user do %>
-          <li>Howdy, <%= @current_user.handle %></li>
+          <li>Howdy, <%= @current_user.name %></li>
           <li><%= link "Admin", to: admin_page_path(@conn, :index) %></li>
           <li><%= link "Sign Out", to: sign_out_path(@conn, :delete) %></li>
 
