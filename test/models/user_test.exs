@@ -15,4 +15,13 @@ defmodule Louvre.UserTest do
     changeset = User.changeset(%User{}, @invalid_attrs)
     refute changeset.valid?
   end
+
+  test "encoded_auth and decoded_auth" do
+    user = %User{email: "jane@doe.com", auth_token:"8675309"}
+
+    {:ok, encoded} = User.encoded_auth(user)
+
+    assert encoded == "6A656E6E7940686974732E636F6D7C38363735333039"
+    assert ["jane@doe.com", "8675309"] = User.decoded_auth(encoded)
+  end
 end
