@@ -17,7 +17,7 @@ defmodule Louvre.AuthControllerTest do
   end
 
   test "submitting the form with known email sets auth token and sends email" do
-    user = insert_user(auth_token: nil)
+    user = insert(:user, auth_token: nil)
 
     conn = post build_conn(), "/in", auth: %{email: user.email}
     user = Repo.get(User, user.id)
@@ -27,7 +27,7 @@ defmodule Louvre.AuthControllerTest do
   end
 
   test "following a valid auth token signs you in" do
-    user = insert_user()
+    user = insert(:user)
 
     changeset = User.auth_changeset(user, %{
       auth_token: "12345",
@@ -44,7 +44,7 @@ defmodule Louvre.AuthControllerTest do
   end
 
   test "following an expired token doesn't sign you in" do
-    user = insert_user()
+    user = insert(:user)
 
     changeset = User.auth_changeset(user, %{
       auth_token: "12345",

@@ -24,7 +24,7 @@ defmodule Louvre.ConnCase do
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Louvre.Factories
+      import Louvre.Factory
 
       import Louvre.Router.Helpers
 

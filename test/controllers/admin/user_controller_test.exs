@@ -6,7 +6,7 @@ defmodule Louvre.Admin.UserControllerTest do
 
   @tag :as_admin
   test "lists all people on index", %{conn: conn} do
-    p1 = insert_user()
+    p1 = insert(:user)
 
     conn = get conn, admin_user_path(conn, :index)
 

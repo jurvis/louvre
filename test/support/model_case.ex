@@ -22,6 +22,7 @@ defmodule Louvre.ModelCase do
       import Ecto.Changeset
       import Ecto.Query
       import Louvre.ModelCase
+      import Louvre.Factory
     end
   end
 
