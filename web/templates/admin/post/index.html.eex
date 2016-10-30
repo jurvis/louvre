@@ -17,7 +17,7 @@
           <th>ID</th>
           <th>Name</th>
           <th>Slug</th>
-          <th>Description</th>
+          <th>Vanity Domain</th>
           <th></th>
         </tr>
       </thead>
@@ -28,11 +28,13 @@
             <td><%= post.id %></td>
             <td><%= post.title %></td>
             <td><%= post.slug %></td>
+            <td><%= vanity_link(post) %></td>
             <td class="center aligned">
               <div class="ui tiny basic buttons">
                 <div class="ui button">View</div>
+                <%= link "View", to: "#", class: "ui button" %>
                 <%= link "Edit", to: admin_post_path(@conn, :edit, post), class: "ui button" %>
-                <%= link "Delete", to: admin_post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"], class: "ui button" %>
+                <%= link "Add Episode", to: "#", class: "ui button" %>
               </div>
             </td>
           </tr>

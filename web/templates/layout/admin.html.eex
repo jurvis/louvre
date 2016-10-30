@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/admin.css") %>">
   </head>
 
-  <body class="pushable">
-    <div class="ui labeled icon left vertical thin inverted menu sidebar visible">
+  <body>
+    <div class="ui top attached menu">
       <%= link to: admin_post_path(@conn, :index), class: "item #{active_class(@conn, Louvre.Admin.PostController)}" do %>
         <i class="home icon"></i>
         Posts
@@ -29,10 +29,8 @@
       <% end  %>
     </div>
 
-    <div class="pusher">
-      <div class="ui basic segment">
-        <%= render @view_module, @view_template, assigns %>
-      </div>
+    <div class="ui very padded basic segment">
+      <%= render @view_module, @view_template, assigns %>
     </div>
     <script src="<%= static_path(@conn, "/js/admin.js") %>"></script>
   </body>
