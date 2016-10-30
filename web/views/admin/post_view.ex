@@ -1,6 +1,7 @@
 defmodule Louvre.Admin.PostView do
   use Louvre.Web, :view
-  use Louvre.Helpers.ViewHelpers
+
+  import Louvre.Admin.SharedView, only: :functions
 
   def vanity_link(podcast) do
     if podcast.vanity_domain do

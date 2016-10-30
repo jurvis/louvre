@@ -49,6 +49,7 @@ defmodule Louvre.Web do
 
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
+      use Louvre.Helpers.ViewHelpers
 
       import Louvre.Router.Helpers
       import Louvre.ErrorHelpers

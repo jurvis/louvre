@@ -9,6 +9,7 @@ defmodule Louvre.Post do
     field :vanity_domain, :string
     field :published, :boolean, default: false
     field :published_at, Ecto.DateTime
+    
     timestamps()
   end
 

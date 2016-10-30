@@ -3,8 +3,8 @@ defmodule Louvre.Admin.PostControllerTest do
 
   alias Louvre.Post
 
-  @valid_attrs %{name: "Some Post Title", slug: "some-post-title"}
-  @invalid_attrs %{name: "Some Post Title", slug: ""}
+  @valid_attrs %{title: "Some Post Title", slug: "some-post-title"}
+  @invalid_attrs %{title: "Some Post Title", slug: ""}
 
   defp post_count(query), do: Repo.one(from p in query, select: count(p.id))
 
@@ -23,7 +23,7 @@ defmodule Louvre.Admin.PostControllerTest do
   @tag :as_admin
   test "renders form to create post", %{conn: conn} do
     conn = get(conn, admin_post_path(conn, :new))
-    assert html_response(conn, 200) =~ ~r/new/
+    assert html_response(conn, 200) =~ ~r/New/
   end
 
   @tag :as_admin
@@ -35,7 +35,7 @@ defmodule Louvre.Admin.PostControllerTest do
   end
 
   @tag :as_admin
-  test "does not create with invalid attributes",  %{conn: conn} do
+  test "does not create with invalid attributes", %{conn: conn} do
     count_before = post_count(Post)
     conn = post(conn, admin_post_path(conn, :create), post: @invalid_attrs)
 
@@ -44,7 +44,7 @@ defmodule Louvre.Admin.PostControllerTest do
   end
 
   @tag :as_admin
-  test "renders form to edit posts",  %{conn: conn} do
+  test "renders form to edit posts", %{conn: conn} do
     post = insert(:post)
     conn = get(conn, admin_post_path(conn, :edit, post))
 
@@ -52,7 +52,7 @@ defmodule Louvre.Admin.PostControllerTest do
   end
 
   @tag :as_admin
-  test "updates post and redirects",  %{conn: conn} do
+  test "updates post and redirects", %{conn: conn} do
     post = insert(:post)
     count_before = post_count(Post)
 
@@ -63,7 +63,7 @@ defmodule Louvre.Admin.PostControllerTest do
   end
 
   @tag :as_admin
-  test "does not update with invalid attributes" do
+  test "does not update with invalid attributes", %{conn: conn} do
     post = insert(:post)
     count_before = post_count(Post)
 

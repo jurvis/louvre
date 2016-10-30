@@ -40,8 +40,6 @@ defmodule Louvre.ConnCase do
       Ecto.Adapters.SQL.Sandbox.mode(Louvre.Repo, {:shared, self()})
     end
 
-    {:ok, conn: Phoenix.ConnTest.build_conn()}
-
     conn = Phoenix.ConnTest.build_conn()
 
     if tags[:as_admin] do

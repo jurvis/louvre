@@ -21,15 +21,16 @@ defmodule Louvre.Admin.PostController do
     case Repo.insert(changeset) do
       {:ok, post} ->
         conn
-        |> put_flash(:info, "#{post.title} created!")
+        |> put_flash(:result, "#{post.title} created!")
         |> redirect(to: admin_post_path(conn, :index))
-
       {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        conn
+        |> put_flash(:result, "failure")
+        |> render("new.html", changeset: changeset)
     end
   end
 
-  def edit(conn, %{"id" => id}) do
+  def edit(conn, params = %{"id" => id}) do
     post = Repo.get!(Post, id)
     changeset = Post.changeset(post)
 
@@ -37,7 +38,7 @@ defmodule Louvre.Admin.PostController do
   end
 
   def update(conn, %{"id" => id, "post" => post_params}) do
-    post = Repo.get!(Posts, id)
+    post = Repo.get!(Post, id)
     changeset = Post.changeset(post, post_params)
 
     case Repo.update(changeset) do

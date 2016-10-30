@@ -3,7 +3,7 @@
 
   <div class="actions">
     <%= link to: admin_post_path(@conn, :new), class: "ui right floated primary button" do %>
-      <i class="icon unmute"></i>
+      <i class="icon write"></i>
       Add Post
     <% end %>
   </div>
@@ -31,10 +31,9 @@
             <td><%= vanity_link(post) %></td>
             <td class="center aligned">
               <div class="ui tiny basic buttons">
-                <div class="ui button">View</div>
                 <%= link "View", to: "#", class: "ui button" %>
                 <%= link "Edit", to: admin_post_path(@conn, :edit, post), class: "ui button" %>
-                <%= link "Add Episode", to: "#", class: "ui button" %>
+                <%= link "Add Photo", to: "#", class: "ui button" %>
               </div>
             </td>
           </tr>

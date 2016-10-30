@@ -15,17 +15,4 @@ defmodule Louvre.Helpers.ViewHelpers do
   def external_link(text, opts) do
     link text, (opts ++ [rel: "external"])
   end
-
-  def error_class(form, field) do
-    if form.errors[field], do: "error", else: ""
-  end
-
-  def error_message(form, field) do
-    if message = form.errors[field] do
-      content_tag :div, class: "ui pointing red basic label" do
-        message
-      end
-    end
-  end
-
 end
