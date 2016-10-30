@@ -32,8 +32,7 @@
             <td class="center aligned">
               <div class="ui tiny basic buttons">
                 <%= link "View", to: "#", class: "ui button" %>
-                <%= link "Edit", to: admin_post_path(@conn, :edit, post), class: "ui button" %>
-                <%= link "Add Photo", to: "#", class: "ui button" %>
+                <%= link "Add Photos", to: admin_post_path(@conn, :edit, post), class: "ui button" %>
               </div>
             </td>
           </tr>
