@@ -1,0 +1,29 @@
+<table class="ui celled striped table">
+  <thead>
+    <tr>
+      <th>Slug</th>
+      <th>Caption</th>
+      <th>Photo</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <%= for photo <- @photos do %>
+    <tr>
+      <td><%= photo.slug %></td>
+      <td><%= photo.caption %></td>
+      <td><img src="http://placehold.it/350x150"/></td>
+      <td class="center aligned">
+        <div class="ui small basic buttons">
+          <%= link "View", to: "#", class: "ui button" %>
+          <%= link to: admin_post_photo_path(@conn, :edit, @post.slug, photo.slug), class: "ui button" do %>
+            <i class="edit icon"></i>
+            Edit
+          <% end %>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table >

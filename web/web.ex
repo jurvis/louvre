@@ -20,7 +20,7 @@ defmodule Louvre.Web do
     quote do
       use Ecto.Schema
       use Timex.Ecto.Timestamps
-
+      alias Louvre.Repo
       import Ecto
       import Ecto.Changeset
       import Ecto.Query

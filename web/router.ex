@@ -35,6 +35,8 @@ defmodule Louvre.Router do
 
     get "/", PageController, :index
     resources "/me", UserController
-    resources "/posts", PostController
+    resources "/posts", PostController do
+      resources "/photos", PhotoController
+    end
   end
 end

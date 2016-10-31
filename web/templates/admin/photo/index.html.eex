@@ -1,0 +1,16 @@
+<div class="ui basic segment">
+  <h1 class="ui dividing header"><%= @post.title %> &raquo; Photos</h1>
+
+  <div class="actions">
+    <%= link to: admin_post_photo_path(@conn, :new, @post.slug), class: "ui right floated primary basic button" do %>
+      <i class="icon photo"></i>
+      Add Photo
+    <% end %>
+  </div>
+</div>
+
+<div class="ui basic segment">
+  <%= if Enum.any?(@photos) do %>
+    <%= render "_table.html", conn: @conn, post: @post, photos: @photos %>
+  <% end %>
+</div>
