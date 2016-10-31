@@ -14,4 +14,12 @@ defmodule Louvre.Factory do
       slug: sequence(:slug, &"post-#{&1}")
     }
   end
+
+  def photo_factory do
+    %Louvre.Photo{
+      caption: sequence(:caption, &"Best picture ever! #{&1}"),
+      slug: sequence(:slug, &"best-show-evar-#{&1}"),
+      post: build(:post)
+    }
+  end
 end
