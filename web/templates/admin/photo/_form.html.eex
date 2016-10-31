@@ -1,0 +1,15 @@
+<%= form_for @changeset, @action, [multipart: true, class: "ui form"], fn f -> %>
+  <div class="two fields">
+    <div class="twelve wide field required <%= error_class f, :caption %>">
+      <%= label f, :caption %>
+      <%= text_input f, :caption, placeholder: "Beautiful Mountains" %>
+      <%= error_message f, :caption %>
+    </div>
+
+    <div class="four wide field required <%= error_class f, :slug %>">
+      <%= label f, :slug %>
+      <%= text_input f, :slug, placeholder: "183" %>
+      <%= error_message f, :slug %>
+    </div>
+  </div>
+<% end %>

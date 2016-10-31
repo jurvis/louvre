@@ -18,4 +18,12 @@ defmodule Louvre.Admin.PhotoControllerTest do
     assert String.contains?(conn.resp_body, photo1.caption)
     refute String.contains?(conn.resp_body, photo2.caption)
   end
+
+  @tag :as_admin
+  test "renders form to add new photo", %{conn: conn} do
+    post = insert(:post)
+
+    conn = get(conn, admin_post_photo_path(conn, :new, post.slug))
+    assert html_response(conn, 200) =~ ~r/new photo/i
+  end
 end
