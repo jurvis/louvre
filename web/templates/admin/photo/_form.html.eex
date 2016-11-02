@@ -12,4 +12,19 @@
       <%= error_message f, :slug %>
     </div>
   </div>
+
+  <div class="field">
+    <%= label f, :image_file %>
+    <%= file_input f, :image_file %>
+  </div>
+
+  <div class="inline field">
+    <div class="ui toggle checkbox">
+      <%= checkbox f, :published, class: "hidden" %>
+      <label>Published</label>
+    </div>
+  </div>
+
+  <%= form_actions %>
+
 <% end %>

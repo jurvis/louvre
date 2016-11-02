@@ -1,5 +1,6 @@
 defmodule Louvre.Photo do
   use Louvre.Web, :model
+  use Arc.Ecto.Schema
 
   alias Louvre.Regexp
 
@@ -22,6 +23,7 @@ defmodule Louvre.Photo do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, @required_fields, @optional_fields)
+    |> cast_attachments(params, ~w(image_file))
     |> validate_format(:slug, Regexp.slug, message: Regexp.slug_message)
     |> unique_constraint(:photos_slug_post_id_index)
   end

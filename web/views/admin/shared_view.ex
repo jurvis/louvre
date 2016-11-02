@@ -14,4 +14,11 @@ defmodule Louvre.Admin.SharedView do
       nil -> ""
     end
   end
+
+  def form_actions do
+    ~e"""
+    <button class="ui primary basic button" type="submit">Save</button>
+    <button class="ui secondary basic button" type="submit" name="close">Save and Close</button>
+    """
+  end
 end
