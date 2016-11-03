@@ -24,11 +24,14 @@ config :logger, :console,
 
 # Configures Arc
 config :arc,
-  bucket: "louvre-test"
+  bucket: "louvre-test",
+  virtual_host: true,
+  asset_host: "https://s3-us-west-2.amazonaws.com/louvre-test"
 
 config :ex_aws,
   access_key_id: System.get_env("AWS_ACCESS_KEY_ID"),
   secret_access_key: System.get_env("AWS_SECRET_ACCESS_KEY"),
+  region: "us-west-2",
   s3: [
     scheme: "https://",
     host: "s3-us-west-2.amazonaws.com",

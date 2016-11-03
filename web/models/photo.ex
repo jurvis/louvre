@@ -1,5 +1,6 @@
 defmodule Louvre.Photo do
   use Louvre.Web, :model
+  use Arc.Definition
   use Arc.Ecto.Schema
 
   alias Louvre.Regexp
