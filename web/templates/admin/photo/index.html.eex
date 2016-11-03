@@ -1,5 +1,5 @@
 <div class="ui basic segment">
-  <h1 class="ui dividing header"><%= @post.title %> &raquo; Photos</h1>
+  <h1 class="ui dividing header"><%= link @post.title, to: admin_post_path(@conn, :index) %> &raquo; Photos</h1>
 
   <div class="actions">
     <%= link to: admin_post_photo_path(@conn, :new, @post.slug), class: "ui right floated primary basic button" do %>

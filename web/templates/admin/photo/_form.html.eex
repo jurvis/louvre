@@ -18,13 +18,5 @@
     <%= file_input f, :image_file %>
   </div>
 
-  <div class="inline field">
-    <div class="ui toggle checkbox">
-      <%= checkbox f, :published, class: "hidden" %>
-      <label>Published</label>
-    </div>
-  </div>
-
   <%= form_actions %>
-
 <% end %>

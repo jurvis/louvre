@@ -1,0 +1,8 @@
+<div class="ui basic segment text container">
+  <h1 class="ui dividing header">
+    <%= link @photo.slug, to: admin_post_photo_path(@conn, :index, @post.slug) %>
+    &raquo; Edit
+  </h1>
+
+  <%= render "_form.html", changeset: @changeset, action: admin_post_photo_path(@conn, :update, @post.slug, @photo.slug) %>
+</div>
