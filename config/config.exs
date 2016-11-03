@@ -25,8 +25,7 @@ config :logger, :console,
 # Configures Arc
 config :arc,
   bucket: "louvre-test",
-  virtual_host: true,
-  asset_host: "https://s3-us-west-2.amazonaws.com/louvre-test"
+  virtual_host: true
 
 config :ex_aws,
   access_key_id: System.get_env("AWS_ACCESS_KEY_ID"),

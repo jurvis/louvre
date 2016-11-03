@@ -24,8 +24,9 @@ defmodule Louvre.Photo do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, @required_fields, @optional_fields)
-    |> cast_attachments(params, ~w(image_file))
+    |> cast_attachments(params, [:image_file])
     |> validate_format(:slug, Regexp.slug, message: Regexp.slug_message)
     |> unique_constraint(:photos_slug_post_id_index)
   end
+
 end

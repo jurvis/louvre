@@ -13,7 +13,7 @@
     <tr>
       <td><%= photo.slug %></td>
       <td><%= photo.caption %></td>
-      <td><img src="<%= photo_url(photo, :small) %>"/></td>
+      <td><img width="300px" src="<%= photo_url(photo, :small) %>"/></td>
       <td class="center aligned">
         <div class="ui small basic buttons">
           <%= link "View", to: "#", class: "ui button" %>

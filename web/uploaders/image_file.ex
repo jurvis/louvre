@@ -13,7 +13,7 @@ defmodule Louvre.ImageFile do
 
   # Whitelist file extensions:
   def validate({file, _}) do
-    ~w(.jpg .jpeg .gif .png) |> Enum.member?(Path.extname(file.file_name))
+    ~w(.jpg .jpeg .JPG .gif .png) |> Enum.member?(Path.extname(file.file_name))
   end
 
   # Define a thumbnail transformation:
@@ -35,13 +35,13 @@ defmodule Louvre.ImageFile do
   end
 
   # Override the persisted filenames:
-  # def filename(version, {file, _}) do
-  #   Path.rootname(file.file_name)
-  # end
+  def filename(version, {file, scope}) do
+    "#{scope.post_id}_#{version}_#{file.file_name}"
+  end
 
   # Override the storage directory:
   def storage_dir(version, {_file, scope}) do
-    "#{Mix.env}/uploads/post/#{scope.post_id}/images/#{scope.slug}/#{version}"
+    "uploads/images/#{scope.post_id}"
   end
 
   # Provide a default URL if there hasn't been a file uploaded
