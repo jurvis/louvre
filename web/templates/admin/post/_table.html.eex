@@ -1,0 +1,29 @@
+<table class="ui celled striped table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Slug</th>
+      <th>Vanity Domain</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= for post <- @posts do %>
+      <tr>
+        <td><%= post.id %></td>
+        <td><%= post.title %></td>
+        <td><%= post.slug %></td>
+        <td><%= vanity_link(post) %></td>
+        <td class="center aligned">
+          <div class="ui tiny basic buttons">
+            <%= link "View", to: "#", class: "ui button" %>
+            <%= link "Edit Post", to: admin_post_path(@conn, :edit, post), class: "ui button" %>
+            <%= link "Add Photos", to: admin_post_photo_path(@conn, :index, post.slug), class: "ui button" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
