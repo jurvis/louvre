@@ -22,7 +22,9 @@ defmodule Louvre.Router do
   scope "/", Louvre do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    resources "/posts", PostController, only: [:show]
+
+    get "/", PageController, :home
 
     get "/in", AuthController, :new, as: :sign_in
     post "/in", AuthController, :new, as: :sign_in

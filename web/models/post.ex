@@ -35,4 +35,9 @@ defmodule Louvre.Post do
       |> Enum.map(&(Float.parse(&1.slug)))
       |> Enum.find(fn(x) -> x != :error end)
   end
+
+  def preload_photos(photo) do
+    photo
+    |> Repo.preload(:photos)
+  end
 end

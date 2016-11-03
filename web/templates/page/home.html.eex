@@ -1,0 +1,12 @@
+<section class="featured mosasic mosaic--abstract">
+  <%= if Enum.any?(@posts) do %>
+    <ul>
+      <%= for post <- @posts do %>
+        <li><%= link post.title, to: post_path(@conn, :show, post.slug) %></li>
+        <%= for photo <- post.photos do %>
+          <img src="<%= photo_url(photo, :thumb) %>"/>
+        <% end %>
+      <% end %>
+    </ul>
+  <% end %>
+</section>

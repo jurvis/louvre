@@ -1,7 +1,11 @@
 defmodule Louvre.PageController do
   use Louvre.Web, :controller
 
-  def index(conn, _params) do
-    render conn, "index.html"
+  alias Louvre.{Post}
+
+  def home(conn, _params) do
+    posts = Repo.all(Post)
+      |> Post.preload_photos
+    render conn, "home.html", posts: posts
   end
 end
