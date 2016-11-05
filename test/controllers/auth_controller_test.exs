@@ -39,7 +39,7 @@ defmodule Louvre.AuthControllerTest do
 
     conn = get(build_conn, "/in/#{encoded}")
 
-    assert redirected_to(conn) == page_path(conn, :index)
+    assert redirected_to(conn) == admin_page_path(conn, :index)
     assert get_session(conn, :user_id) == user.id
   end
 

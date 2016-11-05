@@ -39,7 +39,7 @@ defmodule Louvre.AuthController do
         |> assign(:current_user, user)
         |> put_session(:user_id, user.id)
         |> configure_session(renew: true)
-        |> redirect(to: page_path(conn, :index))
+        |> redirect(to: admin_page_path(conn, :index))
       true ->
         conn
         |> put_flash(:info, "Whoops!")
@@ -50,6 +50,6 @@ defmodule Louvre.AuthController do
   def delete(conn, __params) do
     conn
     |> configure_session(drop: true)
-    |> redirect(to: page_path(conn, :index))
+    |> redirect(to: admin_page_path(conn, :index))
   end
 end
