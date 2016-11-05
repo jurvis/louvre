@@ -1,17 +1,34 @@
 var webpack = require("webpack");
 var merge = require("webpack-merge");
 var CopyWebpackPlugin = require("copy-webpack-plugin");
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var common = {
   module: {
     loaders: [
       {
         test: /\..js$/,
-        exclude: [/node_modules/, /vendor/],
+        exclude: [/node_modules/, /semantic/],
         loader: "babel",
         query: {
           presets: ["es2015"]
         }
+      },
+      {
+        test: /\.css$/,
+        loaders: [
+          'style-loader',
+          'css-loader?importLoaders=1',
+          'postcss-loader'
+        ]
+      },
+      {
+        test: /\.(png|jpg)$/,
+        loader: "file?name=/images/[name].[ext]"
+      },
+      {
+        test: /\.(ttf|eot|svg|woff2?)$/,
+        loader: "file?name=/fonts/[name].[ext]"
       }
     ]
   },
@@ -23,26 +40,33 @@ var common = {
 
 module.exports = [
   merge(common, {
-    entry: "./web/static/js/app.js",
+    entry: [
+      "./web/static/css/app.css",
+      "./web/static/js/app.js"
+    ],
     output: {
-      path: "./priv/static/js",
-      filename: "app.js"
+      path: "./priv/static",
+      filename: "js/app.js"
     },
     plugins: [
-      new CopyWebpackPlugin([{ from: "./web/static/assets" }])
+      new CopyWebpackPlugin([{ from: "./web/static/assets" }]),
+      new ExtractTextPlugin("css/app.css")
     ]
   }),
   merge(common, {
     entry: [
-      "./web/static/vendor/semantic/semantic.js",
+      "./web/static/semantic/semantic.js",
+      "./web/static/semantic/semantic.css",
+      "./web/static/css/admin.css",
       "./web/static/js/admin.js"
     ],
     output: {
-      path: "./priv/static/js",
-      filename: "admin.js"
+      path: "./priv/static",
+      filename: "js/admin.js"
     },
     plugins: [
-      new webpack.ProvidePlugin({$: "jquery", jQuery: "jquery"})
+      new webpack.ProvidePlugin({$: "jquery", jQuery: "jquery"}),
+      new ExtractTextPlugin("css/admin.css")
     ]
   })
 ];
