@@ -5,9 +5,8 @@ defmodule Louvre.ImageFile do
   @versions [:original, :thumb, :small, :medium, :large]
 
   @widths %{
-    thumb: 30,
-    small: 750,
-    medium: 1024,
+    thumb: 200,
+    medium: 750,
     large: 2048
   }
 
@@ -19,10 +18,6 @@ defmodule Louvre.ImageFile do
   # Define a thumbnail transformation:
   def transform(:thumb, _) do
     {:convert, "-strip -thumbnail #{@widths[:thumb]}x#{@widths[:thumb]}^ -gravity center -extent #{@widths[:thumb]}x#{@widths[:thumb]} -format png", :png}
-  end
-
-  def transform(:small, _) do
-    {:convert, "-strip -resize #{@widths[:small]}x"}
   end
 
   # Define a medium transformation:
