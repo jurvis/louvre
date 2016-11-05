@@ -1,4 +1,4 @@
-<section class="featured mosasic mosaic--abstract">
+<section class="post-feed">
   <%= if Enum.any?(@posts) do %>
     <ul>
       <%= for post <- @posts do %>

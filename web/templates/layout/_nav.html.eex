@@ -1,0 +1,10 @@
+<div class="navigation-bar">
+  <%= link to: "/", class: "navigation-bar_name" do %>
+    <h1>gallery // jurv.is</h1>
+  <% end %>
+
+  <nav class="navigation-bar_links">
+    <%= link "About", to: "#", class: "navigation-bar-link" %>
+    <%= link "Musings", to: "#", class: "navigation-bar-link" %>
+  </nav>
+</div>
