@@ -1,0 +1,27 @@
+body
+  font-size: $root-font-size
+  font-family: $content-fallback
+  color: $beige
+
+  @media(min-width: $tablet)
+    font-family: $content
+
+a
+  text-decoration: none
+
+  & > img
+    max-height: 100%
+
+b
+  font-weight: 700
+  color: $beige
+
+p, ul, ol
+  color: $half-white
+
+  &.description
+    max-width: $tablet - 90
+    margin: 1.5rem auto
+    font-size: 1.25em
+    text-align: center
+    color: $beige

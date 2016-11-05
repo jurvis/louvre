@@ -7,7 +7,7 @@ var common = {
   module: {
     loaders: [
       {
-        test: /\..js$/,
+        test: /\.js$/,
         exclude: [/node_modules/, /semantic/],
         loader: "babel",
         query: {
@@ -15,15 +15,11 @@ var common = {
         }
       },
       {
-        test: /\.css$/,
-        loaders: [
-          'style-loader',
-          'css-loader?importLoaders=1',
-          'postcss-loader'
-        ]
+        test: [/\.sass$/, /\.css$/],
+        loader: ExtractTextPlugin.extract("style", "css!sass")
       },
       {
-        test: /\.(png|jpg)$/,
+        test: /\.(png|jpg|gif|svg)$/,
         loader: "file?name=/images/[name].[ext]"
       },
       {
@@ -31,22 +27,21 @@ var common = {
         loader: "file?name=/fonts/[name].[ext]"
       }
     ]
-  },
-
-  resolve: {
-    moduleDirectories: ["node_modules", __dirname + "/web/static/js"]
   }
 };
 
 module.exports = [
   merge(common, {
     entry: [
-      "./web/static/css/app.css",
-      "./web/static/js/app.js"
+      "./web/static/app/app.sass",
+      "./web/static/app/app.js"
     ],
     output: {
       path: "./priv/static",
       filename: "js/app.js"
+    },
+    resolve: {
+      moduleDirectories: ["node_modules", __dirname + "/web/static/app"]
     },
     plugins: [
       new CopyWebpackPlugin([{ from: "./web/static/assets" }]),
@@ -57,12 +52,15 @@ module.exports = [
     entry: [
       "./web/static/semantic/semantic.js",
       "./web/static/semantic/semantic.css",
-      "./web/static/css/admin.css",
-      "./web/static/js/admin.js"
+      "./web/static/admin/admin.css",
+      "./web/static/admin/admin.js"
     ],
     output: {
       path: "./priv/static",
       filename: "js/admin.js"
+    },
+    resolve: {
+      moduleDirectories: ["node_modules", __dirname + "/web/static/admin"]
     },
     plugins: [
       new webpack.ProvidePlugin({$: "jquery", jQuery: "jquery"}),
