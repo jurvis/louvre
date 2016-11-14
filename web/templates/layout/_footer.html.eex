@@ -1,0 +1,6 @@
+<section class="footer">
+  <footer class="footer_container">
+    <a href="https://twitter.com/jurvistan/"><img src="<%= static_url(@conn, "/images/logo-twitter.svg") %>" alt="Twitter"></a>
+    <a href="https://instagram.com/jurvistan/"><img src="<%= static_url(@conn, "/images/logo-instagram.svg") %>" alt="Instagram"></a>
+  </footer>
+</section>
