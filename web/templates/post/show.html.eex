@@ -1,10 +1,10 @@
-<article class="section">
+<article class="section content">
   <div class="container container--has-padding container--skinny">
-    <header>
+    <header class="content_header">
       <h2 class="h2"><%= @post.title %></h2>
-      <%= for photo <- @post.photos do %>
-        <img src="<%= photo_url(photo, :medium) %>"/>
-      <% end %>
     </header>
+    <%= for photo <- @post.photos do %>
+      <img src="<%= photo_url(photo, :medium) %>"/>
+    <% end %>
   </div>
 </article>

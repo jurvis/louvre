@@ -8,6 +8,29 @@ body
 .main
   flex: 1 0 auto
 
+.section
+  padding: 2rem 0
+  background-color: $blue
+
+.container
+  margin: 0 auto
+  overflow: hidden
+  max-width: $desktop
+
+  &--has-padding
+    padding: 0 1rem
+    
+    @media(min-width: $tablet)
+      padding: 0
+
+  &--skinny
+    max-width: $tablet
+    overflow: visible
+
+  &--extra-skinny
+    max-width :$tablet - 90
+    overflow: visible
+
 .wrapper
   width: 100%
 
