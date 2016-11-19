@@ -1,0 +1,10 @@
+<article class="post-summary">
+  <div class="post-summary_images">
+    <%= for photo <- @post.photos do %>
+      <div class="post-summary_image-container">
+        <img src="<%= photo_url(photo, :thumb) %>"/>
+      </div>
+    <% end %>
+  </div>
+  <%= link @post.title, to: post_path(@conn, :show, @post.slug) %>
+</article>
