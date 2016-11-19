@@ -50,6 +50,6 @@ defmodule Louvre.AuthController do
   def delete(conn, __params) do
     conn
     |> configure_session(drop: true)
-    |> redirect(to: admin_page_path(conn, :index))
+    |> redirect(to: page_path(conn, :home))
   end
 end
