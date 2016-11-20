@@ -1,6 +1,6 @@
 <article class="post-summary">
   <div class="post-summary_images">
-    <%= for photo <- @post.photos do %>
+    <%= for photo <- Enum.slice(@post.photos, 0, 3) do %>
       <div class="post-summary_image-container">
         <img src="<%= photo_url(photo, :thumb) %>"/>
       </div>
