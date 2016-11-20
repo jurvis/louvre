@@ -1,26 +1,35 @@
 .navigation-bar
   display: flex
-  position: relative
-  justify-content: space-between
+  flex-direction: column
   align-content: center
   align-items: center
   background-color: $dark-blue
   max-height: 3.125rem
   z-index: 10000
-  padding: 0rem $padding-small 0rem $padding-small
+  padding: $padding-small 0rem $padding-small 0rem
+
+  @media (min-width: $tablet + 100)
+    position: relative
+    flex-direction: row
+    justify-content: space-between
+    padding: $padding-small $padding-small $padding-small $padding-small
 
   &_name
     display: flex
     align-content: center
-    margin: 0
+    margin: 0 auto
+
+    @media (min-width: $tablet + 100)
+      margin: 0
 
     & > h1
+      margin: 0rem 0rem 0.5rem 0rem
       font-weight: 700
       color: $beige
       font-size: 1.25em
 
   &_links
-    display: none
+    // display: none
 
     @media (min-width: $tablet + 100)
       display: flex
