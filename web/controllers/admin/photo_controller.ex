@@ -28,8 +28,7 @@ defmodule Louvre.Admin.PhotoController do
 
     changeset =
       post
-      |> build_assoc(:photos,
-        slug: default_slug)
+      |> build_assoc(:photos, slug: default_slug)
       |> Photo.changeset
 
     render conn, "new.html", changeset: changeset

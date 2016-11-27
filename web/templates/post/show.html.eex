@@ -4,7 +4,7 @@
       <h2 class="post_header_headline"><%= @post.title %></h2>
     </header>
     <%= for photo <- @post.photos do %>
-      <img src="<%= photo_url(photo, :medium) %>"/>
+      <img src="<%= photo_url(@conn, photo) %>"/>
     <% end %>
   </article>
 </div>
