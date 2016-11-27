@@ -19,7 +19,7 @@ defmodule Louvre.Mixfile do
   def application do
     [mod: {Louvre, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :timex, :ex_machina, :ex_aws, :hackney, :poison, :arc_ecto]]
+                    :phoenix_ecto, :postgrex, :timex, :ex_machina, :ex_aws, :hackney, :poison, :arc_ecto, :browser]]
   end
 
   # Specifies which paths to compile per environment.
@@ -46,7 +46,8 @@ defmodule Louvre.Mixfile do
      {:hackney, "~> 1.5"},
      {:poison, "~> 2.0"},
      {:sweet_xml, "~> 0.5"},
-     {:arc_ecto, "~> 0.5.0-rc1"}]
+     {:arc_ecto, "~> 0.5.0-rc1"},
+     {:browser, "~> 0.1.0"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
