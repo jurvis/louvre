@@ -12,4 +12,6 @@ defmodule Louvre.PostView do
         Louvre.Admin.PhotoView.photo_url(photo, :original)
     end
   end
+
+  def thumb_url(photo), do: Louvre.Admin.PhotoView.photo_url(photo, :thumb)
 end
