@@ -5,6 +5,7 @@ defmodule Louvre.PageController do
 
   def home(conn, _params) do
     posts = Repo.all(Post)
+      |> Enum.reverse
       |> Post.preload_photos
     render conn, "home.html", posts: posts
   end
