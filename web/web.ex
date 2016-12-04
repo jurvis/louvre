@@ -55,6 +55,8 @@ defmodule Louvre.Web do
       import Louvre.Helpers.ViewHelpers
       import Louvre.ErrorHelpers
       import Louvre.Gettext
+
+      alias Louvre.TimeView
     end
   end
 
