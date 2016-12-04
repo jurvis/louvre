@@ -2,6 +2,7 @@
   <article class="post">
     <header class="post_header">
       <h2 class="post_header_headline"><%= @post.title %></h2>
+      <span class="post_header_publish-date">Published: <%=  TimeView.pretty_date(@post.published_at) %></span>
     </header>
     <%= for photo <- @post.photos do %>
       <img src="<%= photo_url(@conn, photo) %>"/>
