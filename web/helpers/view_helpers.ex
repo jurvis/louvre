@@ -15,4 +15,12 @@ defmodule Louvre.Helpers.ViewHelpers do
   def external_link(text, opts) do
     link text, (opts ++ [rel: "external"])
   end
+
+  def truncate(string, length) when is_binary(string) do
+    if String.length(string) > length do
+      String.slice(string, 0, length) <> "..."
+    else
+      string
+    end
+  end
 end

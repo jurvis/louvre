@@ -52,6 +52,7 @@ defmodule Louvre.Web do
       use Louvre.Helpers.ViewHelpers
 
       import Louvre.Router.Helpers
+      import Louvre.Helpers.ViewHelpers
       import Louvre.ErrorHelpers
       import Louvre.Gettext
     end
