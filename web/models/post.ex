@@ -40,4 +40,12 @@ defmodule Louvre.Post do
     post
     |> Repo.preload(:photos)
   end
+
+  def published(query \\ __MODULE__) do
+    from p in query, where: p.published == true
+  end
+
+  def unpublished(query \\ __MODULE__) do
+    from p in query, where: p.published == false
+  end
 end
