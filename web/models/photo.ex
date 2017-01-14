@@ -8,6 +8,8 @@ defmodule Louvre.Photo do
   schema "photos" do
     field :caption, :string
     field :slug, :string
+    field :order_id, :integer
+    field :layout, :float
 
     field :image_file, Louvre.ImageFile.Type
 
@@ -15,8 +17,8 @@ defmodule Louvre.Photo do
     timestamps()
   end
 
-  @required_fields ~w(slug)
-  @optional_fields ~w(caption)
+  @required_fields ~w(slug layout)
+  @optional_fields ~w(caption order_id)
 
   @doc """
   Builds a changeset based on the `struct` and `params`.
