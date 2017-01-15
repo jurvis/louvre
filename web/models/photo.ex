@@ -17,15 +17,13 @@ defmodule Louvre.Photo do
     timestamps()
   end
 
-  @required_fields ~w(slug layout)
-  @optional_fields ~w(caption order_id)
-
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, @required_fields, @optional_fields)
+    |> cast(params, [:slug, :layout, :caption, :order_id])
+    |> validate_required([:slug, :order_id])
     |> cast_attachments(params, [:image_file])
     |> validate_format(:slug, Regexp.slug, message: Regexp.slug_message)
     |> unique_constraint(:photos_slug_post_id_index)

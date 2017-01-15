@@ -10,16 +10,13 @@ defmodule Louvre.User do
     timestamps()
   end
 
-  @required_fields ~w(name)
-  @optional_fields ~w(email)
-
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, @required_fields, @optional_fields)
-    |> validate_required([])
+    |> cast(params, [:name, :email])
+    |> validate_required([:name])
     |> unique_constraint(:name)
     |> unique_constraint(:email)
   end
