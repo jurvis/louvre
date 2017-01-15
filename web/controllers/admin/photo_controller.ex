@@ -25,20 +25,22 @@ defmodule Louvre.Admin.PhotoController do
       {float, _} -> round(Float.floor(float) + 1)
       _ -> ""
     end
+    default_order = Post.photos_count(post) + 1
 
     changeset =
       post
-      |> build_assoc(:photos, slug: default_slug)
+      |> build_assoc(:photos, %{"order_id": default_order, "slug": default_slug})
       |> Photo.changeset
 
     render conn, "new.html", changeset: changeset
   end
 
   def create(conn, params = %{"photo" => photo_params}, post) do
+    default_order = Post.photos_count(post) + 1
     changeset =
       build_assoc(post, :photos)
-      |> Photo.changeset(photo_params)
-
+      |> Photo.changeset(Map.put(photo_params, "order_id", default_order))
+    
     case Repo.insert(changeset) do
       {:ok, episode} ->
         conn

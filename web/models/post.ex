@@ -34,6 +34,11 @@ defmodule Louvre.Post do
       |> Enum.find(fn(x) -> x != :error end)
   end
 
+  def photos_count(post) do
+    Repo.preload(post, :photos).photos
+    |> Enum.count
+  end
+
   def preload_photos(post) do
     post
     |> Repo.preload(:photos)
